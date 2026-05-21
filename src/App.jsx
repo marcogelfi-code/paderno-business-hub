@@ -14,9 +14,9 @@ function CardContent({ className = "", children }) {
   return <div className={className}>{children}</div>;
 }
 
-function Button({ asChild, className = "", children }) {
+function Button({ asChild, className = "", children, onClick }) {
   if (asChild) return children;
-  return <button className={className}>{children}</button>;
+  return <button onClick={onClick} className={className}>{children}</button>;
 }
 
 const WHATSAPP = "3939491244";
@@ -43,17 +43,17 @@ const images = {
 };
 
 const units = [
-  { code: "U1", mq: 428.74, area: 56.72, type: "Small Business", status: "Disponibile", price: "Su richiesta" },
-  { code: "U2", mq: 425.12, area: 53.93, type: "Small Business", status: "Disponibile", price: "Su richiesta" },
-  { code: "U3", mq: 428.41, area: 52.04, type: "Small Business", status: "Disponibile", price: "Su richiesta" },
-  { code: "U4", mq: 424.03, area: 49.6, type: "Small Business", status: "Disponibile", price: "Su richiesta" },
-  { code: "U5", mq: 435.88, area: 49.14, type: "Small Business", status: "Disponibile", price: "Su richiesta" },
-  { code: "U6", mq: 423.65, area: 45.24, type: "Small Business", status: "Disponibile", price: "Su richiesta" },
-  { code: "U7", mq: 652.25, area: 145.97, type: "Logistica leggera", status: "Disponibile", price: "Su richiesta" },
-  { code: "U8", mq: 655.7, area: 69.68, type: "Logistica leggera", status: "Disponibile", price: "Su richiesta" },
-  { code: "U9", mq: 1000.23, area: 85.59, type: "Industrial", status: "Disponibile", price: "Su richiesta" },
-  { code: "U10", mq: 1037.15, area: 97.55, type: "Industrial", status: "Disponibile", price: "Su richiesta" },
-  { code: "U11", mq: 856.31, area: 94.31, type: "Industrial", status: "Disponibile", price: "Su richiesta" },
+  { code: "U1", mq: 428.74, area: 56.72, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u1.jpg" },
+  { code: "U2", mq: 425.12, area: 53.93, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u2.jpg" },
+  { code: "U3", mq: 428.41, area: 52.04, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u3.jpg" },
+  { code: "U4", mq: 424.03, area: 49.6, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u4.jpg" },
+  { code: "U5", mq: 435.88, area: 49.14, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u5.jpg" },
+  { code: "U6", mq: 423.65, area: 45.24, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u6.jpg" },
+  { code: "U7", mq: 652.25, area: 145.97, type: "Logistica leggera", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u7.jpg" },
+  { code: "U8", mq: 655.7, area: 69.68, type: "Logistica leggera", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u8.jpg" },
+  { code: "U9", mq: 1000.23, area: 85.59, type: "Industrial", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u9.jpg" },
+  { code: "U10", mq: 1037.15, area: 97.55, type: "Industrial", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u10.jpg" },
+  { code: "U11", mq: 856.31, area: 94.31, type: "Industrial", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u11.jpg" },
 ];
 
 const features = [
@@ -82,25 +82,12 @@ function Header() {
     <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-neutral-950/75 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <a href="#top" className="flex items-center gap-4 min-w-0">
-          <img
-            src={LOGO_INTERMEDIA}
-            alt="Intermedia Immobiliare"
-            className="h-16 object-contain rounded-2xl bg-white px-4 py-2 shadow-lg"
-          />
-
-          <img
-  src="/images/logo-soimod.png?v=3"
-  alt="Soimod"
-  className="h-16 w-auto object-contain rounded-2xl bg-white px-4 py-2 shadow-lg"
-/>
+          <img src={LOGO_INTERMEDIA} alt="Intermedia Immobiliare" className="h-16 object-contain rounded-2xl bg-white px-4 py-2 shadow-lg" />
+          <img src={LOGO_SOIMOD} alt="Soimod" className="h-16 w-auto object-contain rounded-2xl bg-white px-4 py-2 shadow-lg" />
 
           <div className="hidden sm:block">
-            <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white">
-              Paderno
-            </div>
-            <div className="text-xs uppercase tracking-[0.25em] text-cyan-300">
-              Business Hub
-            </div>
+            <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white">Paderno</div>
+            <div className="text-xs uppercase tracking-[0.25em] text-cyan-300">Business Hub</div>
           </div>
         </a>
 
@@ -226,7 +213,7 @@ function Project() {
           </p>
         </motion.div>
 
-        <motion.div {...fadeUp} className="grid gap-4 sm:grid-cols-2">
+        <motion.div {...fadeUp} className="grid gap-6 sm:grid-cols-2">
           <img src={images.external} alt="Render esterno principale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
           <img src={images.interior1} alt="Interno capannone" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl sm:mt-12" />
           <img src={images.external2} alt="Facciata strada" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
@@ -270,6 +257,8 @@ function Features() {
 
 function Spaces() {
   const [filter, setFilter] = useState("Tutti");
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
   const filtered = useMemo(() => filter === "Tutti" ? units : units.filter((u) => u.type === filter), [filter]);
   const types = ["Tutti", ...Array.from(new Set(units.map((u) => u.type)))];
 
@@ -326,10 +315,11 @@ function Spaces() {
                       <div className="font-semibold text-neutral-950">{unit.price}</div>
                     </div>
 
-                    <Button asChild className="rounded-full bg-neutral-950 px-5 py-2 text-white hover:bg-cyan-700">
-                      <a href={`https://wa.me/${WHATSAPP}?text=Buongiorno,%20vorrei%20informazioni%20sul%20capannone%20${unit.code}%20di%20Paderno%20Business%20Hub.`}>
-                        Info
-                      </a>
+                    <Button
+                      className="rounded-full bg-neutral-950 px-5 py-2 text-white hover:bg-cyan-700"
+                      onClick={() => setSelectedPlan(unit)}
+                    >
+                      Planimetria
                     </Button>
                   </div>
                 </CardContent>
@@ -338,6 +328,54 @@ function Spaces() {
           ))}
         </div>
       </div>
+
+      {selectedPlan && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-6">
+          <div className="relative max-h-[92vh] w-full max-w-6xl overflow-auto rounded-[2rem] bg-white p-5 shadow-2xl">
+            <button
+              onClick={() => setSelectedPlan(null)}
+              className="absolute right-4 top-4 z-10 rounded-full bg-neutral-950 px-4 py-2 text-white"
+            >
+              Chiudi
+            </button>
+
+            <div className="mb-5 pr-24">
+              <h3 className="text-3xl font-semibold text-neutral-950">
+                Planimetria {selectedPlan.code}
+              </h3>
+              <p className="mt-1 text-neutral-500">
+                {formatMq(selectedPlan.mq)} mq capannone · {formatMq(selectedPlan.area)} mq area privata
+              </p>
+            </div>
+
+            <img
+              src={selectedPlan.plan}
+              alt={`Planimetria ${selectedPlan.code}`}
+              className="w-full rounded-2xl object-contain"
+            />
+
+            <div className="mt-5 flex flex-col justify-end gap-3 sm:flex-row">
+              <a
+                href={selectedPlan.plan}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-neutral-300 px-6 py-3 text-center font-semibold text-neutral-950 hover:bg-neutral-100"
+              >
+                Apri immagine
+              </a>
+
+              <a
+                href={`https://wa.me/${WHATSAPP}?text=Buongiorno,%20vorrei%20informazioni%20sull'unità%20${selectedPlan.code}%20di%20Paderno%20Business%20Hub.`}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full bg-cyan-400 px-6 py-3 text-center font-semibold text-neutral-950 hover:bg-cyan-300"
+              >
+                Richiedi informazioni su {selectedPlan.code}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -427,11 +465,7 @@ function Contacts() {
     <section id="contatti" className="bg-neutral-100 px-5 py-24 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div {...fadeUp}>
-          <img
-            src={LOGO_INTERMEDIA}
-            alt="Intermedia Immobiliare"
-            className="mb-8 h-20 object-contain rounded-2xl bg-white px-5 py-3 shadow-lg"
-          />
+          <img src={LOGO_INTERMEDIA} alt="Intermedia Immobiliare" className="mb-8 h-20 object-contain rounded-2xl bg-white px-5 py-3 shadow-lg" />
 
           <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">Contatti</div>
           <h2 className="text-4xl font-semibold tracking-tight text-neutral-950 md:text-5xl">
