@@ -230,7 +230,7 @@ function Project() {
           <img src={images.external} alt="Render esterno principale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
           <img src={images.interior1} alt="Interno capannone" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl sm:mt-12" />
           <img src={images.external2} alt="Facciata strada" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
-          <img src={images.interior2} alt="Spazio industriale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl sm:mt-12" />
+          <img src={images.interior3} alt="Spazio industriale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl sm:mt-12" />
         </motion.div>
       </div>
     </section>
