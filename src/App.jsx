@@ -537,7 +537,7 @@ function Contacts() {
                   <option>Showroom + deposito</option>
                 </select>
 
-                <<textarea
+                <textarea
   rows={5}
   value={message}
   onChange={(e) => setMessage(e.target.value)}
