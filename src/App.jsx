@@ -363,17 +363,20 @@ function Spaces() {
               >
                 Apri immagine
               </a>
-
-              <a
                 <button
   onClick={() => {
     localStorage.setItem(
       "pbh_message",
       `Buongiorno, vorrei ricevere informazioni sull'unità ${selectedPlan.code} di Paderno Business Hub.`
     );
+
     setSelectedPlan(null);
+
     setTimeout(() => {
-      document.getElementById("contatti")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("contatti")
+        ?.scrollIntoView({ behavior: "smooth" });
+
       window.dispatchEvent(new Event("pbh_prefill_contact"));
     }, 100);
   }}
@@ -381,12 +384,7 @@ function Spaces() {
 >
   Richiedi informazioni su {selectedPlan.code}
 </button>
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-cyan-400 px-6 py-3 text-center font-semibold text-neutral-950 hover:bg-cyan-300"
-              >
-                Richiedi informazioni su {selectedPlan.code}
-              </a>
+                
             </div>
           </div>
         </div>
