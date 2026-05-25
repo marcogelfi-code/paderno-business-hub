@@ -43,17 +43,17 @@ const images = {
 };
 
 const units = [
-  { code: "U1", mq: 428.74, area: 56.72, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u1.jpg" },
-  { code: "U2", mq: 425.12, area: 53.93, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u2.jpg" },
-  { code: "U3", mq: 428.41, area: 52.04, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u3.jpg" },
-  { code: "U4", mq: 424.03, area: 49.6, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u4.jpg" },
-  { code: "U5", mq: 435.88, area: 49.14, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u5.jpg" },
-  { code: "U6", mq: 423.65, area: 45.24, type: "Small Business", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u6.jpg" },
-  { code: "U7", mq: 652.25, area: 145.97, type: "Logistica leggera", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u7.jpg" },
-  { code: "U8", mq: 655.7, area: 69.68, type: "Logistica leggera", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u8.jpg" },
-  { code: "U9", mq: 1000.23, area: 85.59, type: "Industrial", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u9.jpg" },
-  { code: "U10", mq: 1037.15, area: 97.55, type: "Industrial", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u10.jpg" },
-  { code: "U11", mq: 856.31, area: 94.31, type: "Industrial", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u11.jpg" },
+  { code: "U1", mq: 428.74, area: 56.72, type: "Unità industriale", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u1.jpg" },
+  { code: "U2", mq: 425.12, area: 53.93, type: "Unità industriale", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u2.jpg" },
+  { code: "U3", mq: 428.41, area: 52.04, type: "Unità industriale" status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u3.jpg" },
+  { code: "U4", mq: 424.03, area: 49.6, type: "Unità industriale", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u4.jpg" },
+  { code: "U5", mq: 435.88, area: 49.14, type: "Unità industriale", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u5.jpg" },
+  { code: "U6", mq: 423.65, area: 45.24, type: "Unità industriale", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u6.jpg" },
+  { code: "U7", mq: 652.25, area: 145.97, type: "Logistica & distribuzione", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u7.jpg" },
+  { code: "U8", mq: 655.7, area: 69.68, type: "Logistica & distribuzione", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u8.jpg" },
+  { code: "U9", mq: 1000.23, area: 85.59, type: "Spazio corporate", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u9.jpg" },
+  { code: "U10", mq: 1037.15, area: 97.55, type: "Spazio corporate", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u10.jpg" },
+  { code: "U11", mq: 856.31, area: 94.31, type: "Spazio corporate", status: "Disponibile", price: "Su richiesta", plan: "/images/planimetrie/u11.jpg" },
 ];
 
 const features = [
