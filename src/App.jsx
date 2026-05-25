@@ -365,7 +365,22 @@ function Spaces() {
               </a>
 
               <a
-                href={`https://wa.me/${WHATSAPP}?text=Buongiorno,%20vorrei%20informazioni%20sull'unità%20${selectedPlan.code}%20di%20Paderno%20Business%20Hub.`}
+                <button
+  onClick={() => {
+    localStorage.setItem(
+      "pbh_message",
+      `Buongiorno, vorrei ricevere informazioni sull'unità ${selectedPlan.code} di Paderno Business Hub.`
+    );
+    setSelectedPlan(null);
+    setTimeout(() => {
+      document.getElementById("contatti")?.scrollIntoView({ behavior: "smooth" });
+      window.dispatchEvent(new Event("pbh_prefill_contact"));
+    }, 100);
+  }}
+  className="rounded-full bg-cyan-400 px-6 py-3 text-center font-semibold text-neutral-950 hover:bg-cyan-300"
+>
+  Richiedi informazioni su {selectedPlan.code}
+</button>
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full bg-cyan-400 px-6 py-3 text-center font-semibold text-neutral-950 hover:bg-cyan-300"
@@ -461,6 +476,24 @@ function Gallery() {
 }
 
 function Contacts() {
+
+  const [message, setMessage] = useState("");
+
+  React.useEffect(() => {
+    const updateMessage = () => {
+      const saved = localStorage.getItem("pbh_message");
+      if (saved) setMessage(saved);
+    };
+
+    updateMessage();
+
+    window.addEventListener("pbh_prefill_contact", updateMessage);
+
+    return () => {
+      window.removeEventListener("pbh_prefill_contact", updateMessage);
+    };
+  }, []);
+
   return (
     <section id="contatti" className="bg-neutral-100 px-5 py-24 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -506,7 +539,13 @@ function Contacts() {
                   <option>Showroom + deposito</option>
                 </select>
 
-                <textarea rows={5} className="rounded-2xl border border-neutral-200 px-5 py-4 outline-none focus:border-cyan-600" placeholder="Messaggio" />
+                <<textarea
+  rows={5}
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+  className="rounded-2xl border border-neutral-200 px-5 py-4 outline-none focus:border-cyan-600"
+  placeholder="Messaggio"
+/>
 
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button asChild className="rounded-full bg-neutral-950 px-7 py-4 text-white hover:bg-cyan-700">
