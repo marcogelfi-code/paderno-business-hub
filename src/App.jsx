@@ -150,11 +150,11 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden bg-neutral-950 text-white">
+    <section id="top" className="relative min-h-screen overflow-hidden bg-[#0F1A21] text-white">
       <div className="absolute inset-0">
         <img src={images.hero} alt="Paderno Business Hub" className="h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/55 to-neutral-950/20" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1A21] via-[#0F1A21]/70 to-[#0F1A21]/20" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0F1A21] to-transparent" />
       </div>
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 pt-32 lg:px-8">
@@ -603,7 +603,7 @@ function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="bg-neutral-950 px-5 py-24 text-white lg:px-8">
+    <section id="gallery" className="bg-[#0F1A21] px-5 py-24 text-white lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div {...fadeUp} className="max-w-3xl">
           <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Gallery</div>
