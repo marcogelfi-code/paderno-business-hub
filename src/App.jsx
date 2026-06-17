@@ -720,7 +720,6 @@ export default function PadernoBusinessHub() {
       <Masterplan />
       <Project />
       <Features />
-      <Features />
       <TechnicalSpecs />
       <Spaces />
       <Location />
