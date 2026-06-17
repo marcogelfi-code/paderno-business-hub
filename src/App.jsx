@@ -217,7 +217,7 @@ function Stats() {
 }
 function Masterplan() {
   return (
-    <section id="masterplan" className="bg-neutral-950 px-5 py-24 text-white lg:px-8">
+    <section id="masterplan" className="bg-[#0F1A21] px-5 py-24 text-white lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <motion.div {...fadeUp}>
           <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
@@ -317,46 +317,65 @@ function Features() {
         </div>
       </div>
     </section>
-  );
-}function TechnicalSpecs() {
+ );
+}
+function TechnicalSpecs() {
   const specs = [
-  {
-    icon: Layers,
-    title: "Copertura coibentata",
-    text: "Nuova copertura industriale ad alte prestazioni, pensata per migliorare comfort, efficienza e durabilità dell’immobile.",
-  },
-  {
-    icon: DoorOpen,
-    title: "Portoni sezionali",
-    text: "Accessi ampi e funzionali per attività produttive, magazzino, movimentazione merci e logistica leggera.",
-  },
-  {
-    icon: ThermometerSun,
-    title: "Serramenti a taglio termico",
-    text: "Nuovi serramenti in alluminio per garantire luminosità, isolamento e un’immagine più contemporanea.",
-  },
-  {
-    icon: Warehouse,
-    title: "Cappotto termico",
-    text: "Riqualificazione dell’involucro con isolamento esterno per migliorare le prestazioni energetiche del complesso.",
-  },
-  {
-    icon: ParkingCircle,
-    title: "Aree esterne private",
-    text: "Spazi esterni dedicati per accesso, manovra, carico/scarico e parcheggio a servizio delle singole unità.",
-  },
-  {
-    icon: Sparkles,
-    title: "Immagine aziendale",
-    text: "Nuova identità architettonica, facciate ordinate e finiture moderne per aziende che cercano una sede rappresentativa.",
-  },
-];
+    {
+      icon: Layers,
+      title: "Copertura coibentata",
+      text: "Nuova copertura industriale ad alte prestazioni, pensata per migliorare comfort, efficienza e durabilità dell’immobile.",
+    },
+    {
+      icon: DoorOpen,
+      title: "Portoni sezionali",
+      text: "Accessi ampi e funzionali per attività produttive, magazzino, movimentazione merci e logistica leggera.",
+    },
+    {
+      icon: ThermometerSun,
+      title: "Serramenti a taglio termico",
+      text: "Nuovi serramenti in alluminio per garantire luminosità, isolamento e un’immagine più contemporanea.",
+    },
+    {
+      icon: Warehouse,
+      title: "Cappotto termico",
+      text: "Riqualificazione dell’involucro con isolamento esterno per migliorare le prestazioni energetiche del complesso.",
+    },
+    {
+      icon: ParkingCircle,
+      title: "Aree esterne private",
+      text: "Spazi esterni dedicati per accesso, manovra, carico/scarico e parcheggio a servizio delle singole unità.",
+    },
+    {
+      icon: Sparkles,
+      title: "Immagine aziendale",
+      text: "Nuova identità architettonica, facciate ordinate e finiture moderne per aziende che cercano una sede rappresentativa.",
+    },
+  ];
 
   return (
-    <section id="specifiche" className="bg-white px-5 py-24 text-neutral-950 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <motion.div {...fadeUp} className="max-w-3xl">
-          <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">
+    <section className="bg-[#0F1A21] px-5 py-24 text-white lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <motion.div {...fadeUp} className="grid gap-6">
+          <div className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Riqualificazione completa
+          </div>
+
+          <img
+            src={images.external}
+            alt="Esterno Paderno Business Hub"
+            className="h-[300px] w-full rounded-[2.5rem] object-cover shadow-2xl"
+          />
+
+          <img
+            src={images.interior1}
+            alt="Interno Paderno Business Hub"
+            className="h-[300px] w-full rounded-[2.5rem] object-cover shadow-2xl"
+          />
+        </motion.div>
+
+        <motion.div {...fadeUp}>
+          <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
             Specifiche tecniche
           </div>
 
@@ -364,36 +383,33 @@ function Features() {
             Un intervento pensato per dare nuova efficienza agli spazi produttivi.
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-neutral-600">
-            La riqualificazione del complesso prevede opere mirate a migliorare funzionalità,
-            comfort, immagine architettonica e qualità operativa delle singole unità.
+          <p className="mt-6 text-lg leading-8 text-neutral-300">
+            La riqualificazione del complesso prevede opere mirate a migliorare comfort,
+            funzionalità e immagine architettonica delle singole unità.
           </p>
-        </motion.div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {specs.map(({ icon: Icon, title, text }) => (
-            <Card key={title} className="rounded-[2rem] border border-neutral-200 bg-neutral-50 shadow-sm">
-              <CardContent className="p-7">
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-neutral-950 text-cyan-300">
+          <div className="mt-10 grid gap-4">
+            {specs.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cyan-400 text-neutral-950">
                   <Icon className="h-6 w-6" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-neutral-950">
-                  {title}
-                </h3>
-
-                <p className="mt-3 leading-7 text-neutral-600">
-                  {text}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                  <p className="mt-1 leading-7 text-neutral-300">{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
 function Spaces() {
   const [filter, setFilter] = useState("Tutti");
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -541,27 +557,27 @@ function Location() {
   ];
 
   return (
-    <section id="location" className="bg-neutral-50 px-5 py-24 lg:px-8">
+    <section id="location" className="bg-[#15242D] px-5 py-24 text-white lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
         <motion.div {...fadeUp}>
-          <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">Location</div>
-          <h2 className="text-4xl font-semibold tracking-tight text-neutral-950 md:text-5xl">
+          <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Location</div>
+          <h2 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
             Una posizione concreta per aziende che lavorano con Milano e l’hinterland.
           </h2>
-          <p className="mt-6 text-lg leading-8 text-neutral-600">
+          <p className="mt-6 text-lg leading-8 text-neutral-300">
             La posizione in Via Como 70 a Paderno Dugnano consente di intercettare domanda produttiva, artigianale e logistica del quadrante nord milanese, con un equilibrio raro tra accessibilità, visibilità e disponibilità di superfici riqualificate.
           </p>
 
           <div className="mt-8 grid gap-3">
             {items.map((item) => (
-              <div key={item} className="flex items-center gap-3 text-neutral-700">
-                <CheckCircle2 className="h-5 w-5 text-cyan-700" /> {item}
+              <div key={item} className="flex items-center gap-3 text-neutral-200">
+                <CheckCircle2 className="h-5 w-5 text-cyan-300" /> {item}
               </div>
             ))}
           </div>
         </motion.div>
 
-        <motion.div {...fadeUp} className="overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+        <motion.div {...fadeUp} className="overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
           <iframe
             title="Mappa Paderno Business Hub"
             src={MAP_EMBED}
