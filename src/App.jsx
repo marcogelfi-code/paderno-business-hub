@@ -197,7 +197,52 @@ function Stats() {
     </section>
   );
 }
+function Masterplan() {
+  return (
+    <section id="masterplan" className="bg-neutral-950 px-5 py-24 text-white lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <motion.div {...fadeUp}>
+          <div className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Planimetria generale
+          </div>
 
+          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+            Un comparto industriale modulare, pensato per crescere con la tua impresa.
+          </h2>
+
+          <p className="mt-6 text-lg leading-8 text-neutral-300">
+            Paderno Business Hub propone undici unità produttive e logistiche indipendenti,
+            con superfici flessibili e possibilità di aggregazione. La distribuzione degli
+            spazi consente di rispondere a esigenze differenti: produzione, magazzino,
+            showroom, logistica leggera e sedi aziendali operative.
+          </p>
+
+          <div className="mt-8 grid gap-3">
+            {[
+              "11 unità indipendenti",
+              "Superfici da circa 420 mq a oltre 1.000 mq",
+              "Possibilità di accorpamento",
+              "Aree private esterne",
+              "Accessi funzionali per mezzi commerciali",
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-3 text-neutral-200">
+                <CheckCircle2 className="h-5 w-5 text-cyan-300" /> {item}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div {...fadeUp}>
+          <img
+            src="/images/planimetria-generale.jpg"
+            alt="Planimetria generale Paderno Business Hub U1-U11"
+            className="w-full rounded-[2rem] bg-white object-contain p-3 shadow-2xl"
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 function Project() {
   return (
     <section id="progetto" className="bg-white px-5 py-24 text-neutral-950 lg:px-8">
@@ -606,6 +651,7 @@ export default function PadernoBusinessHub() {
       <Header />
       <Hero />
       <Stats />
+      <Masterplan />
       <Project />
       <Features />
       <Spaces />
