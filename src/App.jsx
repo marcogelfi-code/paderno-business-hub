@@ -85,8 +85,6 @@ function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <a href="#top" className="flex items-center gap-4 min-w-0">
           <img src={LOGO_INTERMEDIA} alt="Intermedia Immobiliare" className="h-16 object-contain rounded-2xl bg-white px-4 py-2 shadow-lg" />
-          <img src={LOGO_SOIMOD} alt="Soimod" className="h-16 w-auto object-contain rounded-2xl bg-white px-4 py-2 shadow-lg" />
-
           <div className="hidden sm:block">
             <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white">Paderno</div>
             <div className="text-xs uppercase tracking-[0.25em] text-cyan-300">Business Hub</div>
