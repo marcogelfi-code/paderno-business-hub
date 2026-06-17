@@ -1,9 +1,29 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight, Building2, MapPin, Phone, Mail, MessageCircle,
-  Filter, Ruler, Truck, ShieldCheck, SunMedium, Factory,
-  CheckCircle2, Menu, X, ExternalLink, Download
+  ArrowRight,
+  Building2,
+  MapPin,
+  Phone,
+  Mail,
+  MessageCircle,
+  Filter,
+  Ruler,
+  Truck,
+  ShieldCheck,
+  SunMedium,
+  Factory,
+  CheckCircle2,
+  Menu,
+  X,
+  ExternalLink,
+  Download,
+  Layers,
+  DoorOpen,
+  ThermometerSun,
+  Warehouse,
+  ParkingCircle,
+  Sparkles
 } from "lucide-react";
 
 function Card({ className = "", children }) {
@@ -300,31 +320,37 @@ function Features() {
   );
 }function TechnicalSpecs() {
   const specs = [
-    {
-      title: "Copertura coibentata",
-      text: "Nuova copertura industriale ad alte prestazioni, pensata per migliorare comfort, efficienza e durabilità dell’immobile.",
-    },
-    {
-      title: "Portoni sezionali",
-      text: "Accessi ampi e funzionali per attività produttive, magazzino, movimentazione merci e logistica leggera.",
-    },
-    {
-      title: "Serramenti a taglio termico",
-      text: "Nuovi serramenti in alluminio per garantire luminosità, isolamento e un’immagine più contemporanea.",
-    },
-    {
-      title: "Cappotto termico",
-      text: "Riqualificazione dell’involucro con isolamento esterno per migliorare le prestazioni energetiche del complesso.",
-    },
-    {
-      title: "Aree esterne private",
-      text: "Spazi esterni dedicati per accesso, manovra, carico/scarico e parcheggio a servizio delle singole unità.",
-    },
-    {
-      title: "Immagine corporate",
-      text: "Nuova identità architettonica, facciate ordinate e finiture moderne per aziende che cercano una sede rappresentativa.",
-    },
-  ];
+  {
+    icon: Layers,
+    title: "Copertura coibentata",
+    text: "Nuova copertura industriale ad alte prestazioni, pensata per migliorare comfort, efficienza e durabilità dell’immobile.",
+  },
+  {
+    icon: DoorOpen,
+    title: "Portoni sezionali",
+    text: "Accessi ampi e funzionali per attività produttive, magazzino, movimentazione merci e logistica leggera.",
+  },
+  {
+    icon: ThermometerSun,
+    title: "Serramenti a taglio termico",
+    text: "Nuovi serramenti in alluminio per garantire luminosità, isolamento e un’immagine più contemporanea.",
+  },
+  {
+    icon: Warehouse,
+    title: "Cappotto termico",
+    text: "Riqualificazione dell’involucro con isolamento esterno per migliorare le prestazioni energetiche del complesso.",
+  },
+  {
+    icon: ParkingCircle,
+    title: "Aree esterne private",
+    text: "Spazi esterni dedicati per accesso, manovra, carico/scarico e parcheggio a servizio delle singole unità.",
+  },
+  {
+    icon: Sparkles,
+    title: "Immagine aziendale",
+    text: "Nuova identità architettonica, facciate ordinate e finiture moderne per aziende che cercano una sede rappresentativa.",
+  },
+];
 
   return (
     <section id="specifiche" className="bg-white px-5 py-24 text-neutral-950 lg:px-8">
@@ -345,19 +371,19 @@ function Features() {
         </motion.div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {specs.map((item) => (
-            <Card key={item.title} className="rounded-[2rem] border border-neutral-200 bg-neutral-50 shadow-sm">
+          {specs.map(({ icon: Icon, title, text }) => (
+            <Card key={title} className="rounded-[2rem] border border-neutral-200 bg-neutral-50 shadow-sm">
               <CardContent className="p-7">
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-neutral-950 text-cyan-300">
-                  <CheckCircle2 className="h-6 w-6" />
+                  <Icon className="h-6 w-6" />
                 </div>
 
                 <h3 className="text-xl font-semibold text-neutral-950">
-                  {item.title}
+                  {title}
                 </h3>
 
                 <p className="mt-3 leading-7 text-neutral-600">
-                  {item.text}
+                  {text}
                 </p>
               </CardContent>
             </Card>
