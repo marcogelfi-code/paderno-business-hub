@@ -101,7 +101,7 @@ function Header() {
   const links = ["Progetto", "Spazi", "Location", "Gallery", "Contatti"];
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-neutral-950/75 backdrop-blur-xl">
+    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0F1A21]/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <a href="#top" className="flex items-center gap-4 min-w-0">
           <img src={LOGO_INTERMEDIA} alt="Intermedia Immobiliare" className="h-16 object-contain rounded-2xl bg-white px-4 py-2 shadow-lg" />
@@ -120,8 +120,16 @@ function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button asChild className="rounded-full bg-white px-5 py-2 text-neutral-950 hover:bg-cyan-100">
-            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer">WhatsApp</a>
+          <Button asChild className="rounded-full border border-cyan-300 bg-[#15242D] px-5 py-2 font-semibold text-white transition hover:bg-[#1B2C36]"
+>
+            <a
+  href={`https://wa.me/${WHATSAPP}`}
+  target="_blank"
+  rel="noreferrer"
+  className="rounded-full border border-cyan-300 bg-[#15242D] px-5 py-2 font-semibold text-white transition hover:bg-[#1B2C36]"
+>
+  WhatsApp
+</a>
           </Button>
         </div>
 
@@ -732,7 +740,7 @@ function Contacts() {
 
 function Footer() {
   return (
-    <footer className="bg-neutral-950 px-5 py-10 text-white lg:px-8">
+    <footer className="bg-[#0F1A21] px-5 py-10 text-white lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center">
         <div>
           <div className="text-lg font-semibold">Paderno Business Hub</div>
