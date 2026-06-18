@@ -52,16 +52,23 @@ const MAP_EMBED =
   "https://www.google.com/maps?q=Via%20Como%2070%20Paderno%20Dugnano&output=embed";
 
 const images = {
-  hero: "/images/aerea.jpg",
-  external: "/images/esterno1.jpg",
-  external2: "/images/esterno2.jpg",
+  hero: "/images/esterno4.jpg",
+  aerea: "/images/aerea.jpg",
+  aerea1: "/images/aerea1.jpg",
+  esterno1: "/images/esterno1.jpg",
+  esterno2: "/images/esterno2.jpg",
+  esterno3: "/images/esterno3.jpg",
+  esterno4: "/images/esterno4.jpg",
   interior1: "/images/interno1.jpg",
   interior2: "/images/interno2.jpg",
   interior3: "/images/interno3.jpg",
   interior4: "/images/interno4.jpg",
-  aerial: "/images/aerea.jpg",
 };
-
+const heroImages = [
+  "/images/esterno3.jpg",
+  "/images/esterno4.jpg",
+  "/images/aerea1.jpg",
+];
 const units = [
   { code: "U1", mq: 428.74, area: 56.72, type: "Unità industriale", status: "Disponibile", price: "Trattativa riservata", plan: "/images/planimetrie/u1.jpg" },
   { code: "U2", mq: 425.12, area: 53.93, type: "Unità industriale", status: "Disponibile", price: "Trattativa riservata", plan: "/images/planimetrie/u2.jpg" },
@@ -157,14 +164,32 @@ function Header() {
 }
 
 function Hero() {
+  const [currentHero, setCurrentHero] = useState(0);
+
+React.useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentHero((prev) => (prev + 1) % heroImages.length);
+  }, 6000);
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#0F1A21] text-white">
-      <div className="absolute inset-0">
-        <img src={images.hero} alt="Paderno Business Hub" className="h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1A21] via-[#0F1A21]/70 to-[#0F1A21]/20" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0F1A21] to-transparent" />
-      </div>
+      <div className="absolute inset-0 overflow-hidden">
+  {heroImages.map((img, index) => (
+    <img
+      key={img}
+      src={img}
+      alt="Paderno Business Hub"
+      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[2000ms] ${
+        index === currentHero ? "opacity-90" : "opacity-0"
+      }`}
+    />
+  ))}
 
+  <div className="absolute inset-0 bg-gradient-to-r from-[#08131C]/45 via-[#08131C]/10 to-transparent" />
+  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0F1A21]/80 to-transparent" />
+</div>
       <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 pt-32 lg:px-8">
         <motion.div {...fadeUp} className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-cyan-100 backdrop-blur">
@@ -287,9 +312,9 @@ function Project() {
         </motion.div>
 
         <motion.div {...fadeUp} className="grid gap-6 sm:grid-cols-2">
-          <img src={images.external} alt="Render esterno principale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
+          <img src={images.esterno1} alt="Render esterno principale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
           <img src={images.interior1} alt="Interno capannone" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl sm:mt-12" />
-          <img src={images.external2} alt="Facciata strada" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
+          <img src={images.esterno2} alt="Facciata strada" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl" />
           <img src={images.interior3} alt="Spazio industriale" className="h-72 w-full rounded-[2rem] object-cover shadow-2xl sm:mt-12" />
         </motion.div>
       </div>
@@ -369,17 +394,15 @@ function TechnicalSpecs() {
             Riqualificazione completa
           </div>
 
-          <img
-            src={images.external}
-            alt="Esterno Paderno Business Hub"
-            className="h-[300px] w-full rounded-[2.5rem] object-cover shadow-2xl"
+          <img src={images.esterno1}
+          alt="Esterno Paderno Business Hub"
+          className="h-[300px] w-full rounded-[2.5rem] object-cover shadow-2xl"
           />
 
-          <img
-            src={images.interior1}
-            alt="Interno Paderno Business Hub"
-            className="h-[300px] w-full rounded-[2.5rem] object-cover shadow-2xl"
-          />
+         <img src={images.interior1}
+          alt="Interno Paderno Business Hub"
+          className="h-[300px] w-full rounded-[2.5rem] object-cover shadow-2xl"
+/>
         </motion.div>
 
         <motion.div {...fadeUp}>
@@ -601,14 +624,14 @@ function Location() {
 
 function Gallery() {
   const gallery = [
-    images.external,
-    images.external2,
-    images.interior1,
-    images.interior2,
-    images.interior3,
-    images.interior4,
-    images.aerial,
-  ];
+  images.esterno1,
+  images.esterno2,
+  images.aerea1,
+  images.interior1,
+  images.interior2,
+  images.interior3,
+  images.interior4,
+];
 
   return (
     <section id="gallery" className="bg-[#0F1A21] px-5 py-24 text-white lg:px-8">
