@@ -442,8 +442,12 @@ function TechnicalSpecs() {
   );
 }
 function Spaces() {
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [filter, setFilter] = useState("Tutti");
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [zoom, setZoom] = useState(1);
 
   const filtered = useMemo(() => filter === "Tutti" ? units : units.filter((u) => u.type === filter), [filter]);
   const types = ["Tutti", ...Array.from(new Set(units.map((u) => u.type)))];
@@ -534,11 +538,57 @@ function Spaces() {
               </p>
             </div>
 
-            <img
-              src={selectedPlan.plan}
-              alt={`Planimetria ${selectedPlan.code}`}
-              className="w-full rounded-2xl object-contain"
-            />
+             <div className="mb-4 flex justify-end gap-2">
+             <button
+              onClick={() => setZoom((z) => Math.max(0.7, z - 0.2))}
+              className="rounded-full bg-neutral-200 px-4 py-2 font-semibold text-neutral-950"
+    >
+    -
+  </button>
+
+  <button
+  onClick={() => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  }}
+  className="rounded-full bg-neutral-200 px-4 py-2 font-semibold text-neutral-950"
+>
+  Reset
+</button>
+</div>
+            <div
+  className="max-h-[72vh] cursor-grab overflow-hidden rounded-2xl bg-neutral-100 p-3 active:cursor-grabbing"
+  onWheel={(e) => {
+    e.preventDefault();
+    setZoom((z) =>
+      Math.min(3, Math.max(0.7, z + (e.deltaY < 0 ? 0.15 : -0.15)))
+    );
+  }}
+  onMouseDown={(e) => {
+    setIsDragging(true);
+    setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+  }}
+  onMouseMove={(e) => {
+    if (!isDragging) return;
+    setPan({
+      x: e.clientX - dragStart.x,
+      y: e.clientY - dragStart.y,
+    });
+  }}
+  onMouseUp={() => setIsDragging(false)}
+  onMouseLeave={() => setIsDragging(false)}
+>
+  <img
+    src={selectedPlan.plan}
+    alt={`Planimetria ${selectedPlan.code}`}
+    draggable="false"
+    style={{
+      transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+      transformOrigin: "top left",
+    }}
+    className="block max-h-[68vh] w-auto select-none rounded-2xl object-contain transition-transform duration-100"
+  />
+</div>
 
             <div className="mt-5 flex flex-col justify-end gap-3 sm:flex-row">
               <a
