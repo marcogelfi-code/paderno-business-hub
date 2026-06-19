@@ -341,7 +341,7 @@ function Features() {
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-950 text-cyan-300">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-950">{title}</h3>
+                  <h3 className="text-lg font-semibold text-neutral-950">{title}</h3>
                   <p className="mt-3 leading-7 text-neutral-600">{text}</p>
                 </CardContent>
               </Card>
@@ -472,51 +472,78 @@ function Spaces() {
           </div>
         </motion.div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((unit) => (
-            <motion.div key={unit.code} {...fadeUp}>
-              <Card className="overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl">
-                <CardContent className="p-0">
-                  <div className="bg-neutral-950 p-6 text-white">
-                    <div className="flex items-center justify-between">
-                      <div className="text-3xl font-semibold">{unit.code}</div>
-                      <span className="rounded-full bg-cyan-400 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-neutral-950">{unit.status}</span>
-                    </div>
-                    <div className="mt-2 text-sm text-neutral-400">{unit.type}</div>
-                  </div>
+        <div className="mt-12 grid gap-4">
+  {filtered.map((unit) => (
+    <motion.div key={unit.code} {...fadeUp}>
+      <Card className="overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-white shadow-sm transition hover:shadow-xl">
+        <CardContent className="px-6 py-5">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
 
-                  <div className="grid grid-cols-2 gap-4 p-6">
-                    <div className="rounded-2xl bg-neutral-100 p-4">
-                      <Ruler className="mb-3 h-5 w-5 text-cyan-700" />
-                      <div className="text-2xl font-semibold text-neutral-950">{formatMq(unit.mq)}</div>
-                      <div className="text-sm text-neutral-500">mq capannone</div>
-                    </div>
+            <div className="flex items-center gap-6">
+              <div>
+                <div className="text-3xl font-semibold text-neutral-950">
+                  {unit.code}
+                </div>
 
-                    <div className="rounded-2xl bg-neutral-100 p-4">
-                      <Building2 className="mb-3 h-5 w-5 text-cyan-700" />
-                      <div className="text-2xl font-semibold text-neutral-950">{formatMq(unit.area)}</div>
-                      <div className="text-sm text-neutral-500">mq area privata</div>
-                    </div>
-                  </div>
+                <div className="text-sm text-neutral-500">
+                  {unit.type}
+                </div>
+              </div>
 
-                  <div className="flex items-center justify-between border-t border-neutral-100 px-6 py-5">
-                    <div>
-                      <div className="text-xs uppercase tracking-[0.2em] text-neutral-400">Prezzo</div>
-                      <div className="font-semibold text-neutral-950">{unit.price}</div>
-                    </div>
+              <span className="rounded-full bg-cyan-400 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-neutral-950">
+                {unit.status}
+              </span>
+            </div>
 
-                    <Button
-                      className="rounded-full bg-neutral-950 px-5 py-2 text-white hover:bg-cyan-700"
-                      onClick={() => setSelectedPlan(unit)}
-                    >
-                      Planimetria
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+            <div className="flex gap-10">
+
+              <div>
+                <div className="text-2xl font-semibold text-neutral-950">
+                  {formatMq(unit.mq)} mq
+                </div>
+
+                <div className="text-xs uppercase tracking-[0.15em] text-neutral-500">
+                  Capannone
+                </div>
+              </div>
+
+              <div>
+                <div className="text-2xl font-semibold text-neutral-950">
+                  {formatMq(unit.area)} mq
+                </div>
+
+                <div className="text-xs uppercase tracking-[0.15em] text-neutral-500">
+                  Area privata
+                </div>
+              </div>
+
+            </div>
+
+            <div className="flex items-center gap-5">
+              <div>
+                <div className="text-xs uppercase tracking-[0.15em] text-neutral-400">
+                  Prezzo
+                </div>
+
+                <div className="font-semibold text-neutral-950">
+                  {unit.price}
+                </div>
+              </div>
+
+              <Button
+                className="rounded-full bg-neutral-950 px-5 py-3 text-white hover:bg-cyan-700"
+                onClick={() => setSelectedPlan(unit)}
+              >
+                Planimetria
+              </Button>
+            </div>
+
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  ))}
+</div>
       </div>
 
       {selectedPlan && (
