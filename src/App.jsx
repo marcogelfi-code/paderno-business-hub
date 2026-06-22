@@ -844,18 +844,28 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center">
         <div>
           <div className="text-lg font-semibold">Paderno Business Hub</div>
-          <div className="mt-1 text-sm text-neutral-400">Commercializzazione a cura di Agenzia Immobiliare Intermedia</div>
+          <div className="mt-1 text-sm text-neutral-400">
+            Commercializzazione a cura di Agenzia Immobiliare Intermedia
+          </div>
         </div>
 
         <div className="flex gap-3">
           <Button asChild className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-white hover:bg-white/10">
-            <a href="#spazi"><Filter className="mr-2 h-4 w-4 inline" /> Disponibilità</a>
+            <a href="#spazi">
+              <Filter className="mr-2 h-4 w-4 inline" /> Disponibilità
+            </a>
           </Button>
 
           <Button asChild className="rounded-full bg-cyan-400 px-5 py-2 text-neutral-950 hover:bg-cyan-300">
-            <a href={`https://wa.me/${WHATSAPP}`}><MessageCircle className="mr-2 h-4 w-4 inline" /> WhatsApp</a>
+            <a href={`https://wa.me/${WHATSAPP}`}>
+              <MessageCircle className="mr-2 h-4 w-4 inline" /> WhatsApp
+            </a>
           </Button>
         </div>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-8 text-center text-xs leading-6 text-neutral-500">
+        Le immagini, i render e le rappresentazioni grafiche hanno finalità esclusivamente illustrative e non costituiscono elemento contrattuale.
       </div>
     </footer>
   );
