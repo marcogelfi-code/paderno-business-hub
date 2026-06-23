@@ -736,8 +736,6 @@ function Gallery() {
   );
 }
 
-function Contacts() {
-
   function Contacts() {
   const [message, setMessage] = useState(
     "Buongiorno, vorrei ricevere informazioni su Paderno Business Hub. Sono interessato a disponibilità, prezzi e visita in cantiere."
