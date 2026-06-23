@@ -811,19 +811,26 @@ function Contacts() {
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button asChild className="rounded-full bg-neutral-950 px-7 py-4 text-white hover:bg-cyan-700">
                     <a
-                      href={`https://wa.me/${WHATSAPP}?text=Buongiorno,%20vorrei%20ricevere%20informazioni%20su%20Paderno%20Business%20Hub.%20Sono%20interessato%20a%20disponibilità,%20prezzi%20e%20visita%20in%20cantiere.`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Invia richiesta
-                    </a>
+                    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
+                    target="_blank"
+                    rel="noreferrer"
+>
+  Invia richiesta
+</a>
                   </Button>
 
-                  <Button asChild className="rounded-full border border-neutral-300 px-7 py-4 text-neutral-950 hover:bg-neutral-100">
-                    <a href={`mailto:${EMAIL}?subject=Richiesta informazioni Paderno Business Hub`}>
-                      <Mail className="mr-2 h-5 w-5 inline" /> Email
-                    </a>
-                  </Button>
+                  <Button
+  className="rounded-full border border-neutral-300 px-7 py-4 text-neutral-950 hover:bg-neutral-100"
+  onClick={() => {
+    const subject = encodeURIComponent("Richiesta informazioni Paderno Business Hub");
+    const body = encodeURIComponent(message);
+
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  }}
+>
+  <Mail className="mr-2 h-5 w-5 inline" />
+  Email
+</Button>
                 </div>
 
                 <p className="text-xs leading-5 text-neutral-400">
