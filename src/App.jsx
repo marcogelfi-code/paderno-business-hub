@@ -41,7 +41,7 @@ function Button({ asChild, className = "", children, onClick }) {
 
 const WHATSAPP = "3939491244";
 const PHONE = "+39 393 949 1244";
-const EMAIL = "info@intermedia-immobiliare.it";
+const EMAIL = "info@padernobusinesshub.it";
 const WEBSITE = "https://www.intermedia-immobiliare.it/";
 
 const CAPITOLATO = "/downloads/capitolato.pdf";
