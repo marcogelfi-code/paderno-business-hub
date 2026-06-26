@@ -45,6 +45,7 @@ const EMAIL = "info@padernobusinesshub.it";
 const WEBSITE = "https://www.intermedia-immobiliare.it/";
 
 const CAPITOLATO = "/downloads/capitolato.pdf";
+const BROCHURE = "/downloads/brochure-paderno-business-hub.pdf";
 const LOGO_INTERMEDIA = "/images/logo-intermedia.png";
 const LOGO_SOIMOD = "/images/logo-soimod.png";
 
@@ -218,6 +219,11 @@ React.useEffect(() => {
                 <Download className="mr-2 h-5 w-5 inline" /> Scarica capitolato
               </a>
             </Button>
+            <Button asChild className="rounded-full bg-cyan-400 px-7 py-4 text-base font-semibold text-neutral-950 hover:bg-cyan-300">
+             <a href={BROCHURE} target="_blank" rel="noreferrer">
+                <Download className="mr-2 h-5 w-5 inline" /> Scarica brochure
+  </a>
+</Button>
           </div>
         </motion.div>
       </div>
